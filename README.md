@@ -1,2 +1,0 @@
-# HomePageTailwindcss
-Tailwindcss , Html , Ts
