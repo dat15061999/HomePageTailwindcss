@@ -3,7 +3,7 @@ export function handleChangeNav(): void {
   const blackground = document.querySelector('.backgroundBlack');
   const contentOpen = 'translate-x-72';
   const contentClose = '-translate-x-72';
-  if (navbar?.classList.contains(contentClose)) {
+  if (navbar?.classList.contains(contentClose) && blackground?.classList.contains(contentClose)) {
     navbar?.classList.remove(contentClose);
     navbar?.classList.add(contentOpen);
     blackground?.classList.remove('hidden');

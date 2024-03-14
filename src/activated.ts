@@ -22,3 +22,15 @@ export const handleChangeActivated = (e: string) => {
     buttonSell?.classList.add(noActivated);
   }
 }
+export const handleChangeHidden = () => {
+  const video = document.querySelector('.youtube')?.classList;
+  const backgroundBlack = document.querySelector('.backgroundBlack')?.classList;
+  const contentHidden = 'hidden';
+  if (video?.contains(contentHidden) && backgroundBlack?.contains(contentHidden)) {
+    video.remove(contentHidden);
+    backgroundBlack.remove(contentHidden);
+  } else {
+    video?.add(contentHidden);
+    backgroundBlack?.add(contentHidden);
+  }
+}

@@ -21,8 +21,7 @@ setupFormValid();
 // import { setupMenuMobile } from './menu-mobile.ts';
 // setupMenuMobile(document.getElementsByClassName('handle-menu'));
 // // swiper 10
-import { setupSwiper } from './swiper.ts';
-setupSwiper();
+
 
 // // echarts 5
 // import { setupEchart } from './echart.ts'
@@ -52,7 +51,7 @@ document.querySelector(".pages")?.addEventListener("click", () => handleAddNavMe
 document.querySelector(".project")?.addEventListener("click", () => handleAddNavMenu(".project"));
 document.querySelector(".blog")?.addEventListener("click", () => handleAddNavMenu(".blog"));
 // button 
-import { handleChangeActivated } from "./activated.ts"
+import { handleChangeActivated, handleChangeHidden } from "./activated.ts"
 
 document.querySelector(".button-rent")?.addEventListener("click", () => handleChangeActivated(".button-rent"));
 document.querySelector(".button-buy")?.addEventListener("click", () => handleChangeActivated(".button-buy"));
@@ -80,10 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 //count
 document.addEventListener("DOMContentLoaded", function () {
-  function countUp(elementSelector, targetNumber, suffix = "", delay = 100) {
+  function countUp(elementSelector, targetNumber, suffix = "", delay) {
     var countElement = document.querySelector(elementSelector);
     var currentNumber = 0;
-    var increment = Math.ceil(targetNumber / 10);
+    var increment = Math.ceil(targetNumber / targetNumber);
 
     var interval = setInterval(function () {
       countElement.textContent = currentNumber.toLocaleString() + suffix;
@@ -95,16 +94,43 @@ document.addEventListener("DOMContentLoaded", function () {
       currentNumber += increment;
     }, delay);
   }
-  countUp(".count-patients", 200, "");
-  countUp(".count-hearts", 20, "");
-  countUp(".count-doctors", 10, "K");
-  countUp(".count-works", 900, "");
+
+  function checkScrollAndCount() {
+    var elementsToCount = [
+      { selector: ".count-patients", target: 200, suffix: "", delay: 10 },
+      { selector: ".count-hearts", target: 20, suffix: "", delay: 100 },
+      { selector: ".count-doctors", target: 10, suffix: "K", delay: 100 },
+      { selector: ".count-works", target: 900, suffix: "", delay: 0 }
+    ];
+
+    elementsToCount.forEach(function (element) {
+      var countElement = document.querySelector(element.selector);
+      if (countElement) {
+        var elementPosition = countElement.getBoundingClientRect().top;
+        var screenHeight = window.innerHeight;
+        var triggerPosition = screenHeight * 0.75;
+
+        if (elementPosition < triggerPosition) {
+          countUp(element.selector, element.target, element.suffix, element.delay);
+        }
+      }
+    });
+  }
+  let count = 0;
+  // checkScrollAndCount();
+  window.addEventListener("scroll", function () {
+    if (count === 0 && window.scrollY > 5600 && window.scrollY < 5700) {
+      count += 1;
+      checkScrollAndCount();
+    }
+  });
+
 });
+
 
 
 window.addEventListener('scroll', () => {
   const navMenu = document.querySelector('.nav-menu');
-
   if (window.scrollY > 123) {
     navMenu?.classList.add('sticky')
     navMenu?.classList.add('top-0')
@@ -119,3 +145,15 @@ window.addEventListener('scroll', () => {
     navMenu?.classList.remove('opacity-85')
   }
 })
+
+import { setupSwiper } from './swiper.ts';
+setupSwiper();
+
+const buttonOpenVideo = document.querySelector(".button-open-video");
+buttonOpenVideo?.addEventListener("click", () => {
+  handleChangeHidden();
+});
+const buttonCloseVideo = document.querySelector(".button-close-video");
+buttonCloseVideo?.addEventListener("click", () => {
+  handleChangeHidden();
+});

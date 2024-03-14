@@ -1,3 +1,4 @@
+
 export const animationSlide = (e: Element, delay: number) => {
   const tl = gsap.timeline({ delay, defaults: { duration: 1, ease: 'power1.inOut' } });
   const eGsap = e.querySelectorAll('.gsap');
@@ -14,3 +15,4 @@ export const animationSlide = (e: Element, delay: number) => {
     if (item.classList.contains('zoom')) gsap.to(item, { scale: '+=0.1', duration: 20 });
   });
 };
+
