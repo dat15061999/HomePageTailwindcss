@@ -10,10 +10,10 @@ export const setupSwiper = () => {
     //   type: 'bullets',
     //   clickable: true
     // },
-    // on: {
-    //   init: (el: any) => animationSlide(el.slides[el.activeIndex], 0),
-    //   slideChangeTransitionStart: (el: any) => animationSlide(el.slides[el.activeIndex], 0),
-    // },
+    on: {
+      init: (el: any) => animationSlide(el.slides[el.activeIndex], 0),
+      slideChangeTransitionStart: (el: any) => animationSlide(el.slides[el.activeIndex], 0),
+    },
     autoplay: {
       delay: 5000,
     },
