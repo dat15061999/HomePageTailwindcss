@@ -52,7 +52,7 @@
       </div>
     </header>
     <!-- End Header -->
-
+    
     <!-- Nav Bar -->
     <nav class="nav-menu bg-slate-50 shadow-md w-full h-16 lg:h-28 z-20 opacity-95">
       <div class="flex flex-wrap justify-between text-base items-center mx-2 sm:mx-6 lg:mx-8 xl:mx-16 px-3">
@@ -267,97 +267,130 @@
       </div>
     </nav>
 
-    <div class="relative z-30">
-      <div
-        class="navbar fixed top-0 lg:hidden bg-slate-50 h-full duration-500 ease-in-out transition w-72 -translate-x-72 transform"
-      >
-        <div class="p-6">
-          <div class="pt-3 flex flex-wrap justify-between">
-            <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/logo/logo.png" alt="" />
-            <ion-icon
-              name="close-circle"
-              id="closeNar"
-              class="text-3xl hover:cursor-pointer absolute top-5 right-5 text-slate-300 hover:text-slate-700"
-            ></ion-icon>
-          </div>
-          <div class="pt-7">
-            <ul class="text-base font-semibold mb-3">
-              <li class="text-orange-500 hover:text-orange-500 cursor-pointer home">
-                <div class="overflow-hidden border-b-2 py-3">
-                  <div class="flex justify-between items-center">
-                    <p>Home</p>
-                    <ion-icon name="chevron-down-outline"></ion-icon>
-                  </div>
-                  <ul class="text-gray-800 pl-3 *:py-2 -translate-y-40 homeMenu">
-                    <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                      <a href="javascript:void(0)" class="">Home One</a>
-                    </li>
-                    <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                      <a href="javascript:void(0)" class="">Home Two</a>
-                    </li>
-                    <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                      <a href="javascript:void(0)" class="">Home Three</a>
-                    </li>
-                    <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                      <a href="javascript:void(0)" class="">Home Four</a>
-                    </li>
-                    <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                      <a href="javascript:void(0)" class="">Home Five</a>
-                    </li>
-                    <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                      <a href="javascript:void(0)" class="">Home Video</a>
-                    </li>
-                    <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                      <a href="javascript:void(0)" class="">Home Map</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="hover:text-orange-500 cursor-pointer pages">
-                <div class="flex justify-between items-center border-b-2 py-3">
-                  <p>Pages</p>
+  <div class="relative z-30">
+    <div
+      class="navbar fixed top-0 lg:hidden bg-slate-50 h-full duration-500 ease-in-out transition w-72 -translate-x-72 transform overflow-y-scroll">
+      <div class="p-6">
+        <div class="pt-3 flex flex-wrap justify-between">
+          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/logo/logo.png" alt="">
+          <ion-icon name="close-circle" id="closeNar"
+            class="text-3xl hover:cursor-pointer absolute top-5 right-5 text-slate-300 hover:text-slate-700"></ion-icon>
+        </div>
+        <div class="pt-7">
+          <ul class="text-base font-semibold mb-3">
+            <li class="text-orange-500 hover:text-orange-500 cursor-pointer home overflow-hidden relative">
+              <div class=" border-b-2 py-3">
+                <div class="flex justify-between items-center">
+                  <p>Home</p>
                   <ion-icon name="chevron-down-outline"></ion-icon>
                 </div>
-                <ul class="text-gray-800 pl-3 *:py-2 hidden pagesMenu">
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Property</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Property Sidebar</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Property Details</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Add New Listing</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Map Location</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">About us</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">FAQ</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Check out</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Cart</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Login</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Account</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="hover:text-orange-500 cursor-pointer project">
-                <div class="flex justify-between items-center border-b-2 py-3">
-                  <p>Project</p>
-                  <ion-icon name="chevron-down-outline"></ion-icon>
+              </div>
+              <ul class="text-gray-800 pl-3 *:py-2 overflow-hidden pt-1 static homeMenu hidden">
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home One</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Two</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Three</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Four</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Five</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Video</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Map</a>
+                </li>
+              </ul>
+            </li>
+            <li class="hover:text-orange-500 cursor-pointer pages">
+              <div class="flex justify-between items-center border-b-2 py-3">
+                <p>Pages</p>
+                <ion-icon name="chevron-down-outline"></ion-icon>
+              </div>
+              <ul class="text-gray-800 pl-3 *:py-2 hidden pagesMenu ">
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Property</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Property Sidebar</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Property Details</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Add New Listing</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Map Location</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">About us</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">FAQ</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Check out</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Cart</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Login</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Account</a>
+                </li>
+              </ul>
+            </li>
+            <li class="hover:text-orange-500 cursor-pointer project">
+              <div class="flex justify-between items-center border-b-2 py-3">
+                <p>Project</p>
+                <ion-icon name="chevron-down-outline"></ion-icon>
+              </div>
+              <ul class="text-gray-800 pl-3 *:py-2 hidden projectMenu">
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Project</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Project Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="hover:text-orange-500 cursor-pointer blog">
+              <div class="flex justify-between items-center border-b-2  py-3 ">
+                <p>Blog</p>
+                <ion-icon name="chevron-down-outline"></ion-icon>
+              </div>
+              <ul class="text-gray-800 pl-3 *:py-2 hidden blogMenu">
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Blog</a>
+                </li>
+                <li class="hover:translate-x-2 transform duration-500 border-b-2">
+                  <a href="javascript:void(0)" class="">Blog Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="hover:bg-gray-200 border items-center py-3 mt-3">
+              <a href="javascript:void(0)" class="items-center flex justify-center">
+                SELL PROPERTY
+                <div class="items-center text-orange-300 inline-block">
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+
                 </div>
                 <ul class="text-gray-800 pl-3 *:py-2 hidden projectMenu">
                   <li class="hover:translate-x-2 transform duration-500 border-b-2">
@@ -404,101 +437,70 @@
 
     <!-- End Nav Bar -->
 
-    <!-- Main -->
-    <main class="bg-gray-100">
-      <div class="mx-2 sm:mx-6 lg:mx-8 xl:mx-16 px-3 py-20 relative max-h-full">
-        <div class="lg:grid lg:grid-cols-2 relative">
-          <div class="">
-            <h3 class="text-sm font-bold">FINTECH FUSION</h3>
-            <h1 class="text-3xl md:text-7xl font-bold pt-3 tracking-wide">Invest today in You</h1>
-            <h1 class="text-3xl md:text-6xl font-bold font-[Poppins,sans-serif] text-orange-500 tracking-wide">
-              Dream Home
-            </h1>
-            <h6 class="text-slate-500 pt-3 xl:pr-52 leading-5 font-normal tracking-wide">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum voluptatem quidem numquam sequi, ipsam
-              necessitatibus omnis fugiat reiciendis.
-            </h6>
-          </div>
-          <div class="relative max-h-full z-1 mt-80 sm:mt-60 md:mt-96 lg:mt-0">
-            <img
-              src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/banner-img.png"
-              alt=""
-              class="w-full h-auto"
-            />
-            <img
-              src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-triangle.png"
-              alt=""
-              class="absolute animate-spin top-10 gsap"
-            />
-            <img
-              src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-circle.png"
-              alt=""
-              class="absolute right-64 md:right-96 animate-spin top-32 dgsap"
-            />
-            <img
-              src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-moon.png"
-              alt=""
-              class="absolute right-10 animate-spin repeat-infinite ease-in-out top-32 gsap"
-            />
-          </div>
-          <div class="z-10 pt-20 absolute top-36 sm:top-48 lg:top-64 w-full">
-            <form>
-              <div class="flex justify-start gap-4">
-                <button
-                  class="button-activated px-7 py-2 rounded-md border-2 button-rent hover:text-orange-300"
-                  type="reset"
-                >
-                  Rent
-                </button>
-                <button
-                  class="button-not-activated px-7 py-2 border-2 rounded-md button-buy hover:text-orange-300"
-                  type="reset"
-                >
-                  Buy
-                </button>
-                <button
-                  class="button-not-activated px-7 py-2 border-2 rounded-md button-sell hover:text-orange-300"
-                  type="reset"
-                >
-                  Sell
-                </button>
-              </div>
-              <div class="w-full mt-3 p-7 grid lg:grid-cols-4 grid-cols-2 gap-4 bg-white">
-                <input
-                  type="text"
-                  placeholder="Enter Keyword"
-                  class="p-5 border-2 border-slate-200 rounded-md text-black focus:ring-2 focus:ring-orange-600 focus:border-none outline-none"
-                />
-                <select
-                  class="p-5 border-2 border-slate-200 rounded-md focus:ring-2 focus:ring-orange-600 focus:border-none outline-none"
-                  value="absolute"
-                >
-                  <option value="" disabled>Prototype</option>
-                  <option value="apartment">Apartment</option>
-                  <option value="house">House</option>
-                  <option value="land">Land</option>
-                  <option value="single">Single Family</option>
-                </select>
-                <select
-                  class="p-5 border-2 border-slate-200 rounded-md focus:ring-2 focus:ring-orange-600 focus:border-none outline-none"
-                  value="bangladesh"
-                >
-                  <option value="" disabled>Location</option>
-                  <option value="bangladesh">Bangladesh</option>
-                  <option value="japan">Japan</option>
-                  <option value="korea">Korea</option>
-                  <option value="singapore">Singapore</option>
-                  <option value="germany">Germany</option>
-                  <option value="thailand">Thailand</option>
-                </select>
-                <button
-                  class="w-full border rounded text-center text-lg leading-non py-3 pl-3 text-white bg-gradient-to-t from-orange-600 to-orange-400 uppercase"
-                >
-                  Find now
-                </button>
-              </div>
-            </form>
-          </div>
+  <!-- Main -->
+  <main class="bg-gray-100">
+    <div class="mx-2 sm:mx-6 lg:mx-8 xl:mx-16 px-3 py-20 relative max-h-full">
+      <div class="lg:grid lg:grid-cols-2 relative">
+        <div class="">
+          <h3 class="text-sm font-bold">FINTECH FUSION</h3>
+          <h1 class="text-3xl md:text-7xl font-bold pt-3 tracking-wide">
+            Invest today in You
+          </h1>
+          <h1 class="text-3xl md:text-6xl font-bold font-[Poppins,sans-serif] text-orange-500 tracking-wide">
+            Dream Home
+          </h1>
+          <h6 class="text-slate-500 pt-3 xl:pr-52 leading-5 font-normal tracking-wide">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum voluptatem quidem numquam sequi, ipsam
+            necessitatibus omnis fugiat reiciendis.
+        </div>
+        <div class="relative max-h-full z-1 mt-80 sm:mt-60 md:mt-96 lg:mt-0">
+          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/banner-img.png" alt=""
+            class="w-full h-auto">
+          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-triangle.png" alt=""
+            class="absolute animate-rotation  top-10 ">
+          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-circle.png" alt=""
+            class="absolute right-64 md:right-96 animate-rotationScale top-32 ">
+          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-moon.png" alt=""
+            class="absolute right-10 animate-turnOver top-32 transform-cpu">
+        </div>
+        <div class="z-10 pt-20 absolute top-36 sm:top-48 lg:top-64 w-full">
+          <form>
+            <div class="flex justify-start gap-4">
+              <button class="button-activated  px-7 py-2 rounded-md border-2 button-rent hover:text-orange-300"
+                type="reset">Rent</button>
+              <button class="button-not-activated px-7 py-2 border-2 rounded-md button-buy hover:text-orange-300"
+                type="reset">Buy</button>
+              <button class="button-not-activated px-7 py-2 border-2 rounded-md button-sell hover:text-orange-300"
+                type="reset">Sell</button>
+            </div>
+            <div class="w-full mt-3 p-7  grid lg:grid-cols-4 grid-cols-2 gap-4 bg-white">
+              <input type="text" placeholder="Enter Keyword"
+                class="p-5 border-2  border-slate-200 rounded-md text-black focus:ring-2 focus:ring-orange-600 focus:border-none outline-none">
+              <select
+                class="p-5 border-2  border-slate-200 rounded-md focus:ring-2 focus:ring-orange-600 focus:border-none outline-none"
+                value="absolute">
+                <option value="" disabled>Prototype</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+                <option value="land">Land</option>
+                <option value="single">Single Family</option>
+              </select>
+              <select
+                class="p-5 border-2  border-slate-200 rounded-md focus:ring-2 focus:ring-orange-600 focus:border-none outline-none"
+                value="bangladesh">
+                <option value="" disabled>Location</option>
+                <option value="bangladesh">Bangladesh</option>
+                <option value="japan">Japan</option>
+                <option value="korea">Korea</option>
+                <option value="singapore">Singapore</option>
+                <option value="germany">Germany</option>
+                <option value="thailand">Thailand</option>
+              </select>
+              <button
+                class="w-full border rounded text-center text-lg leading-non py-3 pl-3 text-white bg-gradient-to-t from-orange-600 to-orange-400 uppercase">Find
+                now</button>
+            </div>
+          </form>
         </div>
       </div>
     </main>
@@ -996,26 +998,19 @@
       </div>
     </section>
     <!--  Property Section End  -->
-
-    <!--Play Video start-->
-    <div class="relative z-10 mt-10 mx-2 sm:mx-6 lg:mx-8 xl:mx-16 sm:p-3">
-      <div class="items-center justify-center">
-        <div class="relative min-h-56 max-w-screen-xl">
-          <img
-            src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/video-popup.png"
-            alt=""
-            class="h-full min-h-56 w-full max-w-full rounded-xl"
-          />
-          <div
-            class="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded cursor-pointer button-open-video"
-          >
-            <span class="relative flex">
-              <span
-                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-600 duration-1000 ease-in-out"
-              ></span>
-              <span class="relative inline-flex h-20 w-20 rounded-full bg-orange-500 text-4xl">
-                <ion-icon name="play" class="pl-6 pt-5 text-white"></ion-icon>
-              </span>
+  <!--Play Video start-->
+  <div class="relative z-10 mt-10 mx-2 sm:mx-6 lg:mx-8 xl:mx-16 sm:p-3">
+    <div class="items-center justify-center">
+      <div class="relative min-h-56 max-w-screen-xl">
+        <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/video-popup.png" alt=""
+          class="h-full min-h-56 w-full max-w-full rounded-xl" />
+        <div
+          class="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded cursor-pointer button-open-video">
+          <span class="relative flex ">
+            <span
+              class="absolute h-full w-full transition animate-ping rounded-full bg-orange-400 delay-1000 ease-in-out"></span>
+            <span class="relative inline-flex h-20 w-20 rounded-full bg-orange-500 text-4xl ">
+              <ion-icon name="play" class="pl-6 pt-5 text-white"></ion-icon>
             </span>
           </div>
         </div>
@@ -1461,9 +1456,34 @@
                 <div class="flex items-center">
                   <ion-icon class="w-3.5 mr-1" name="pricetags-outline"></ion-icon>
                   <span class="text-xs text-gray-600 font-thin cursor-pointer hover:text-orange-400"
-                    >Comments (05)</span
-                  >
+                    >Comments (05)</span>
                 </div>
+            <div class="mt-5 pb-5 font-semibold cursor-pointer text-lg hover:text-orange-400 line-clamp-2">
+              Discover Endless Possibilities in Real Estate Live Your Best Life in a New Home
+            </div>
+            <a class="  max-w-24 w-full font-semibold  hover:text-orange-500" id="mouseLeave">
+              Book Now
+              <span class=" ml-2 text-orange-400 group-hover:ml-1 text-lg transition-all  ease-in-out" id="plus">
+                +</span>
+            </a>
+          </div>
+        </div>
+        <div
+          class="relative rounded-lg border border-x-gray-200 pb-5 bg-[#f7f7f7fe] mb-10 sm:mb-0  hover:shadow-md group">
+          <div class="border  border-gray-300 overflow-hidden">
+            <img class="w-full transition-all transform group-hover:scale-110 "
+              src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/blog2.png" />
+          </div>
+          <div class="absolute bottom-40 right-8 px-3 py-2 rounded-lg bg-white">
+            <div class="text-2xl font-semibold">09</div>
+            <div class="text-sm text-gray-400">Mar</div>
+          </div>
+          <div class="ml-5 mt-5">
+            <div class="flex justify-center p-1 py-2 border border-gray-300 w-64 md:w-48  xl:w-64 rounded-md">
+              <div class="flex mr-4 items-center">
+                <ion-icon class="mr-1" name="person-circle-outline"></ion-icon>
+                <span class="text-xs text-gray-600 font-thin cursor-pointer hover:text-orange-400">By Admin</span>
+
               </div>
               <div class="mt-5 font-semibold cursor-pointer hover:text-orange-400 text-lg line-clamp-2">
                 Discover Endless Possibilities in Real Estate Live Your Best Life in a New Home
@@ -1473,6 +1493,15 @@
                 <span class="cursor-pointer ml-2 text-orange-400 hover:ml-1 text-lg transition-all">+</span>
               </div>
             </div>
+            <div class="mt-5 pb-5 font-semibold cursor-pointer hover:text-orange-400 text-lg line-clamp-2">
+              Discover Endless Possibilities in Real Estate Live Your Best
+              Life in a New Home
+            </div>
+            <a class="  max-w-24 w-full font-semibold  hover:text-orange-500" id="mouseLeave">
+              Book Now
+              <span class=" ml-2 text-orange-400 group-hover:ml-1 text-lg transition-all  ease-in-out" id="plus">
+                +</span>
+            </a>
           </div>
         </div>
       </div>

@@ -1,10 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./*.html'],
-  safelist: ['!border', '!border-solid', '!border-teal-900', '!bg-white', '!text-teal-900', 'hover:!bg-none', 'right-0', 'opacity-50'],
+  safelist: [
+    '!border',
+    '!border-solid',
+    '!border-teal-900',
+    '!bg-white',
+    '!text-teal-900',
+    'hover:!bg-none',
+    'right-0',
+    'opacity-50',
+  ],
   variants: {
     extend: {
-      display: ["group-hover"],
+      display: ['group-hover'],
     },
   },
   theme: {
@@ -296,28 +305,59 @@ module.exports = {
           '50%': { width: '50%' },
           '100%': { width: '100%' },
         },
+        burgerHover2: {
+          '0%': { width: '5%', height: '5%', transform: 'scale(1) opacity(1)' },
+          '50%': { width: '10%', height: '10%', transform: 'scale(1) opacity(1)' },
+          '100%': { width: '5%', height: '5%', transform: 'scale(1) opacity(1)' },
+        },
+        rotationScale: {
+          '0%': { transform: 'scale(1) rotate(0deg)' },
+          '50%': { transform: 'scale(0.8) rotate(180deg)' },
+          '100%': { transform: 'scale(1) rotate(360deg)' },
+        },
+        rotation: {
+          '0%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(80px) rotate(180deg)' },
+          '100%': { transform: 'translateY(0px) rotate(0deg)' },
+        },
+        turnOver: {
+          '0%': { transform: 'rotateX(55deg)' },
+          '50%': { transform: 'rotateX(180deg)' },
+          '100%': { transform: 'rotateX(0deg)' },
+        },
         introXAnimation: {
           to: {
             opacity: '1',
             transform: 'translateX(0px)',
           },
         },
-        ping: {
-          "0% 50%": {
-            transform: "scale(0)  opacity-0",
-          },
-
-        }
+        '0%': {
+          transform: 'scale(0)' /* Tạo phần tử nhỏ lại */,
+          opacity: '0.5' /* Giảm độ mờ */,
+        },
+        '50%': {
+          transform: 'scale(0)' /* Phần tử to lên */,
+          opacity: '1' /* Tăng độ mờ */,
+        },
+        '100% ': {
+          transform: 'scale(0)' /* Trở lại kích thước ban đầu */,
+          opacity: '0.5' /* Giảm độ mờ */,
+        },
       },
       animation: {
+        'rotation': 'rotation 8s linear infinite;',
+        'rotationScale': 'rotationScale 8s linear infinite;',
+        'turnOver': 'turnOver 8s linear infinite;',
+        spinx8: 'spin 8s linear infinite;',
+        'burgerHover2': 'burgerHover2 2s infinite ease-in alternate forwards 800ms',
         shine: 'shine 0.8s',
         'intro-x-animation': 'introXAnimation .4s ease-in-out forwards .33333s',
         'burger-hover-2': 'burgerHover 1s infinite ease-in-out alternate forwards 200ms',
         'burger-hover-4': 'burgerHover 1s infinite ease-in-out alternate forwards 400ms',
         'burger-hover-6': 'burgerHover 1s infinite ease-in-out alternate forwards 600ms',
-        ping: "ping 2s cubic-bezier(0, 0, 0.1, 0) infinite;"
+        ping: 'ping 2.5s cubic-bezier(0, 0, 0.1, 0) infinite;',
       },
-    }
+    },
   },
-  plugins: [require("tailwindcss-animate"),],
+  plugins: [require('tailwindcss-animate')],
 };
