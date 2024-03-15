@@ -27,7 +27,10 @@ export function handleAddNavMenu(e: string): void {
       homeMenu?.classList.add(display);
     }
     if (navbar !== pagesMenu && !pagesMenu?.classList.contains(display)) {
-      pagesMenu?.classList.add(display);
+      pagesMenu?.classList.toggle(display);
+      pagesMenu?.classList.toggle('translate-y-full');
+      pagesMenu?.classList.toggle('opacity-100');
+      
     }
     if (navbar !== projectMenu && !projectMenu?.classList.contains(display)) {
       projectMenu?.classList.add(display);
