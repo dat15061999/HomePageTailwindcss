@@ -60,15 +60,14 @@
         <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/logo/logo.png" alt="">
       </a>
       <ul class="hidden lg:flex flex-wrap gap-6 items-center ">
-        <li class="relative group py-3 lg:py-10">
+        <li class="relative group py-3 lg:py-10 lg:my-2">
           <a href="javascript:void(0)"
             class=" text-orange-400 cursor-default items-center flex justify-center gap-2 hover:text-orange-400">
             Home
             <ion-icon name="chevron-down-outline" class="group-hover:rotate-180"></ion-icon>
           </a>
-          <ul
-            class="absolute mt-9 bg-white right-2 opacity-0 transition left-0 boder rounded-md p-2 min-w-48
-               group-hover:translate-y-1 translate-y-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform">
+          <ul class="absolute mt-9 bg-white right-2 opacity-0 transition left-0 boder rounded-md p-2 min-w-48 z-50
+               group-hover:translate-y-1 translate-y-0 group-hover:opacity-100 duration-500 ease-in-out  transform">
             <li class="hover:bg-slate-300 p-2 rounded-md main-icon">
               <div class="flex flex-wrap items-center gap-1">
                 <ion-icon name="play-forward" class="hidden">
@@ -328,7 +327,7 @@
 
   <div class="relative z-30">
     <div
-      class="navbar fixed top-0 lg:hidden bg-slate-50 h-full duration-500 ease-in-out transition w-72 -translate-x-72 transform">
+      class="navbar fixed top-0 lg:hidden bg-slate-50 h-full duration-500 ease-in-out transition w-72 -translate-x-72 transform overflow-y-scroll">
       <div class="p-6">
         <div class="pt-3 flex flex-wrap justify-between">
           <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/logo/logo.png" alt="">
@@ -337,37 +336,43 @@
         </div>
         <div class="pt-7">
           <ul class="text-base font-semibold mb-3">
-            <li class="text-orange-500 hover:text-orange-500 cursor-pointer home">
-              <div class="overflow-hidden border-b-2 py-3">
+            <li class="text-orange-500 hover:text-orange-500 cursor-pointer home overflow-hidden relative">
+              <div class=" border-b-2 py-3">
                 <div class="flex justify-between items-center">
                   <p>Home</p>
                   <ion-icon name="chevron-down-outline"></ion-icon>
                 </div>
-                <ul class="text-gray-800 pl-3 *:py-2 -translate-y-40 homeMenu">
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Home One</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Home Two</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Home Three</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Home Four</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Home Five</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Home Video</a>
-                  </li>
-                  <li class="hover:translate-x-2 transform duration-500 border-b-2">
-                    <a href="javascript:void(0)" class="">Home Map</a>
-                  </li>
-                </ul>
               </div>
-
+              <ul class="text-gray-800 pl-3 *:py-2 overflow-hidden pt-1 static homeMenu hidden">
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home One</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Two</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Three</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Four</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Five</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Video</a>
+                </li>
+                <li
+                  class="hover:translate-x-2 transform transition-transform  duration-500 border-b-2 activated-narbar">
+                  <a href="javascript:void(0)" class="">Home Map</a>
+                </li>
+              </ul>
             </li>
             <li class="hover:text-orange-500 cursor-pointer pages">
               <div class="flex justify-between items-center border-b-2 py-3">
@@ -481,11 +486,11 @@
           <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/banner-img.png" alt=""
             class="w-full h-auto">
           <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-triangle.png" alt=""
-            class="absolute animate-spin  top-10 gsap">
+            class="absolute animate-rotation  top-10 ">
           <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-circle.png" alt=""
-            class="absolute right-64 md:right-96 animate-spin top-32  dgsap">
+            class="absolute right-64 md:right-96 animate-rotationScale top-32 ">
           <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-moon.png" alt=""
-            class="absolute right-10 animate-spin repeat-infinite ease-in-out top-32 gsap">
+            class="absolute right-10 animate-turnOver top-32 transform-cpu">
         </div>
         <div class="z-10 pt-20 absolute top-36 sm:top-48 lg:top-64 w-full">
           <form>
