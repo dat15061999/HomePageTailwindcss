@@ -39,14 +39,22 @@ setupFormValid();
 //   });
 //   console.log(test);
 // };
-
+function handleAddNavMenuItem() {
+  const menuItems = document.querySelectorAll(".activated-narbar");
+  menuItems?.forEach(items => {
+    items.classList.add('active');
+  })
+}
 
 import { handleChangeNav, handleAddNavMenu } from './hoverNav.ts';
 
 document.getElementById("menuNav")?.addEventListener("click", handleChangeNav);
 document.getElementById("closeNar")?.addEventListener("click", handleChangeNav);
 document.querySelector(".backgroundBlack")?.addEventListener("click", handleChangeNav);
-document.querySelector(".home")?.addEventListener("click", () => handleAddNavMenu(".home"));
+document.querySelector(".home")?.addEventListener("click", () => {
+  handleAddNavMenu(".home")
+  handleAddNavMenuItem();
+});
 document.querySelector(".pages")?.addEventListener("click", () => handleAddNavMenu(".pages"));
 document.querySelector(".project")?.addEventListener("click", () => handleAddNavMenu(".project"));
 document.querySelector(".blog")?.addEventListener("click", () => handleAddNavMenu(".blog"));

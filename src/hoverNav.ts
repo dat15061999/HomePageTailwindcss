@@ -20,22 +20,25 @@ export function handleAddNavMenu(e: string): void {
   const pagesMenu = document.querySelector('.pagesMenu');
   const projectMenu = document.querySelector('.projectMenu');
   const blogMenu = document.querySelector('.blogMenu');
-  const display = 'hidden';
-  if (navbar?.classList.contains(display)) {
-    navbar?.classList.remove(display);
-    if (navbar !== homeMenu && !homeMenu?.classList.contains(display)) {
-      homeMenu?.classList.add(display);
+  const displayNone = 'hidden';
+  const displayBlock = 'block';
+  if (navbar?.classList.contains(displayNone)) {
+    navbar?.classList.remove(displayNone);
+    navbar?.classList.add(displayBlock);
+    if (navbar !== homeMenu && !homeMenu?.classList.contains(displayNone)) {
+      homeMenu?.classList.add(displayNone);
     }
-    if (navbar !== pagesMenu && !pagesMenu?.classList.contains(display)) {
-      pagesMenu?.classList.add(display);
+    if (navbar !== pagesMenu && !pagesMenu?.classList.contains(displayNone)) {
+      pagesMenu?.classList.add(displayNone);
     }
-    if (navbar !== projectMenu && !projectMenu?.classList.contains(display)) {
-      projectMenu?.classList.add(display);
+    if (navbar !== projectMenu && !projectMenu?.classList.contains(displayNone)) {
+      projectMenu?.classList.add(displayNone);
     }
-    if (navbar !== blogMenu && !blogMenu?.classList.contains(display)) {
-      blogMenu?.classList.add(display);
+    if (navbar !== blogMenu && !blogMenu?.classList.contains(displayNone)) {
+      blogMenu?.classList.add(displayNone);
     }
   } else {
-    navbar?.classList.add(display);
+    navbar?.classList.add(displayNone);
+    navbar?.classList.remove(displayBlock);
   }
 }
