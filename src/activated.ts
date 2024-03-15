@@ -24,7 +24,7 @@ export const handleChangeActivated = (e: string) => {
 }
 export const handleChangeHidden = () => {
   const video = document.querySelector('.youtube')?.classList;
-  const backgroundBlack = document.querySelector('.backgroundBlack')?.classList;
+  const backgroundBlack = document.querySelector('.button-close-video')?.classList;
   const contentHidden = 'hidden';
   if (video?.contains(contentHidden) && backgroundBlack?.contains(contentHidden)) {
     video.remove(contentHidden);

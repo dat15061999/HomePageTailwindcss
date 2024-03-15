@@ -59,13 +59,13 @@ document.querySelector(".button-sell")?.addEventListener("click", () => handleCh
 
 // 4000
 document.addEventListener("DOMContentLoaded", function () {
-  var countElement = document.querySelector(".count-animate");
+  let countElement = document.querySelector(".count-animate");
 
-  var targetNumber = 4000;
-  var currentNumber = 0;
-  var increment = Math.ceil(targetNumber / 100);
+  let targetNumber = 4000;
+  let currentNumber = 0;
+  let increment = Math.ceil(targetNumber / 100);
   if (countElement) {
-    var interval = setInterval(function () {
+    let interval = setInterval(function () {
       countElement.textContent = currentNumber.toLocaleString() + "+";
 
       if (currentNumber >= targetNumber) {
@@ -80,11 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
 //count
 document.addEventListener("DOMContentLoaded", function () {
   function countUp(elementSelector, targetNumber, suffix = "", delay) {
-    var countElement = document.querySelector(elementSelector);
-    var currentNumber = 0;
-    var increment = Math.ceil(targetNumber / targetNumber);
+    let countElement = document.querySelector(elementSelector);
+    let currentNumber = 0;
+    let increment = Math.ceil(targetNumber / targetNumber);
 
-    var interval = setInterval(function () {
+    let interval = setInterval(function () {
       countElement.textContent = currentNumber.toLocaleString() + suffix;
 
       if (currentNumber >= targetNumber) {
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkScrollAndCount() {
-    var elementsToCount = [
+    let elementsToCount = [
       { selector: ".count-patients", target: 200, suffix: "", delay: 10 },
       { selector: ".count-hearts", target: 20, suffix: "", delay: 100 },
       { selector: ".count-doctors", target: 10, suffix: "K", delay: 100 },
@@ -104,11 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     elementsToCount.forEach(function (element) {
-      var countElement = document.querySelector(element.selector);
+      let countElement = document.querySelector(element.selector);
       if (countElement) {
-        var elementPosition = countElement.getBoundingClientRect().top;
-        var screenHeight = window.innerHeight;
-        var triggerPosition = screenHeight * 0.75;
+        let elementPosition = countElement.getBoundingClientRect().top;
+        let screenHeight = window.innerHeight;
+        let triggerPosition = screenHeight * 0.75;
 
         if (elementPosition < triggerPosition) {
           countUp(element.selector, element.target, element.suffix, element.delay);
