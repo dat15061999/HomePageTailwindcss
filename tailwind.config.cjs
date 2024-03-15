@@ -1,10 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./*.html'],
-  safelist: ['!border', '!border-solid', '!border-teal-900', '!bg-white', '!text-teal-900', 'hover:!bg-none', 'right-0', 'opacity-50'],
+  safelist: [
+    '!border',
+    '!border-solid',
+    '!border-teal-900',
+    '!bg-white',
+    '!text-teal-900',
+    'hover:!bg-none',
+    'right-0',
+    'opacity-50',
+  ],
   variants: {
     extend: {
-      display: ["group-hover"],
+      display: ['group-hover'],
     },
   },
   theme: {
@@ -302,12 +311,18 @@ module.exports = {
             transform: 'translateX(0px)',
           },
         },
-        ping: {
-          "0% 50%": {
-            transform: "scale(0)  opacity-0",
-          },
-
-        }
+        '0%': {
+          transform: 'scale(0)' /* Tạo phần tử nhỏ lại */,
+          opacity: '0.5' /* Giảm độ mờ */,
+        },
+        '50%': {
+          transform: 'scale(0)' /* Phần tử to lên */,
+          opacity: '1' /* Tăng độ mờ */,
+        },
+        '100% ': {
+          transform: 'scale(0)' /* Trở lại kích thước ban đầu */,
+          opacity: '0.5' /* Giảm độ mờ */,
+        },
       },
       animation: {
         shine: 'shine 0.8s',
@@ -315,9 +330,9 @@ module.exports = {
         'burger-hover-2': 'burgerHover 1s infinite ease-in-out alternate forwards 200ms',
         'burger-hover-4': 'burgerHover 1s infinite ease-in-out alternate forwards 400ms',
         'burger-hover-6': 'burgerHover 1s infinite ease-in-out alternate forwards 600ms',
-        ping: "ping 2s cubic-bezier(0, 0, 0.1, 0) infinite;"
+        ping: 'ping 2.5s cubic-bezier(0, 0, 0.1, 0) infinite;',
       },
-    }
+    },
   },
-  plugins: [require("tailwindcss-animate"),],
+  plugins: [require('tailwindcss-animate')],
 };
