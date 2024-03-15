@@ -157,3 +157,21 @@ const buttonCloseVideo = document.querySelector(".button-close-video");
 buttonCloseVideo?.addEventListener("click", () => {
   handleChangeHidden();
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const mouseLeaves = document.querySelectorAll("#mouseLeave");
+
+  mouseLeaves.forEach(function(mouseLeave) {
+    const plus = mouseLeave.querySelector("#plus");
+
+    plus?.classList.remove("group-hover:ml-1");
+
+    mouseLeave.addEventListener("mouseenter", function() {
+      plus?.classList.add("group-hover:ml-1");
+    });
+
+    mouseLeave.addEventListener("mouseleave", function() {
+      plus?.classList.remove("group-hover:ml-1");
+    });
+  });
+});
