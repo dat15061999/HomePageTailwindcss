@@ -28,8 +28,10 @@ export function handleAddNavMenu(e: string): void {
     if (navbar !== homeMenu && !homeMenu?.classList.contains(displayNone)) {
       homeMenu?.classList.add(displayNone);
     }
+
     if (navbar !== pagesMenu && !pagesMenu?.classList.contains(displayNone)) {
       pagesMenu?.classList.add(displayNone);
+
     }
     if (navbar !== projectMenu && !projectMenu?.classList.contains(displayNone)) {
       projectMenu?.classList.add(displayNone);

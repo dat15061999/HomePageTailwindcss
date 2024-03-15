@@ -86,17 +86,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 //count
-document.addEventListener("DOMContentLoaded", function () {
-  function countUp(elementSelector, targetNumber, suffix = "", delay) {
-    let countElement = document.querySelector(elementSelector);
-    let currentNumber = 0;
-    let increment = Math.ceil(targetNumber / targetNumber);
+document.addEventListener('DOMContentLoaded', function () {
+  var countedElements = []; 
+  var allTargetsReached = false;
 
-    let interval = setInterval(function () {
+  function countUp(elementSelector, targetNumber, suffix = '', delay) {
+    var countElement = document.querySelector(elementSelector);
+    var currentNumber = 0;
+    var increment = Math.ceil(targetNumber / targetNumber);
+
+    var interval = setInterval(function () {
       countElement.textContent = currentNumber.toLocaleString() + suffix;
 
       if (currentNumber >= targetNumber) {
         clearInterval(interval);
+        checkAllTargetsReached(); // Kiểm tra nếu tất cả các target đã được đạt đến
       }
 
       currentNumber += increment;
@@ -104,35 +108,40 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkScrollAndCount() {
-    let elementsToCount = [
-      { selector: ".count-patients", target: 200, suffix: "", delay: 10 },
-      { selector: ".count-hearts", target: 20, suffix: "", delay: 100 },
-      { selector: ".count-doctors", target: 10, suffix: "K", delay: 100 },
-      { selector: ".count-works", target: 900, suffix: "", delay: 0 }
+    var elementsToCount = [
+      { selector: '.count-patients', target: 200, suffix: '', delay: 20 },
+      { selector: '.count-hearts', target: 20, suffix: '', delay: 200 },
+      { selector: '.count-doctors', target: 10, suffix: 'K', delay: 400 },
+      { selector: '.count-works', target: 900, suffix: '', delay: -50 },
     ];
 
     elementsToCount.forEach(function (element) {
-      let countElement = document.querySelector(element.selector);
-      if (countElement) {
-        let elementPosition = countElement.getBoundingClientRect().top;
-        let screenHeight = window.innerHeight;
-        let triggerPosition = screenHeight * 0.75;
+      var countElement = document.querySelector(element.selector);
+      if (countElement && !countedElements.includes(element.selector)) {
+        var elementPosition = countElement.getBoundingClientRect().top;
+        var screenHeight = window.innerHeight;
+        var triggerPosition = screenHeight * 0.75;
 
         if (elementPosition < triggerPosition) {
           countUp(element.selector, element.target, element.suffix, element.delay);
+          countedElements.push(element.selector);
         }
       }
     });
   }
-  let count = 0;
-  // checkScrollAndCount();
-  window.addEventListener("scroll", function () {
-    if (count === 0 && window.scrollY > 5600 && window.scrollY < 5700) {
-      count += 1;
-      checkScrollAndCount();
-    }
-  });
 
+  function checkAllTargetsReached() {
+    if (!allTargetsReached && countedElements.length === 4) { // Cần phải có 4 elements
+      allTargetsReached = true;
+      // Thực hiện các tác vụ sau khi tất cả các target đã được đạt đến
+      console.log("Tất cả các target đã được đạt đến cùng một lúc.");
+    }
+  }
+
+  checkScrollAndCount();
+  window.addEventListener('scroll', function () {
+    checkScrollAndCount();
+  });
 });
 
 
@@ -164,4 +173,22 @@ buttonOpenVideo?.addEventListener("click", () => {
 const buttonCloseVideo = document.querySelector(".button-close-video");
 buttonCloseVideo?.addEventListener("click", () => {
   handleChangeHidden();
+});
+
+document.addEventListener("DOMContentLoaded", () =>{
+  const mouseLeaves = document.querySelectorAll("#mouseLeave");
+
+  mouseLeaves.forEach((mouseLeave) => {
+    const plus = mouseLeave.querySelector("#plus");
+
+    plus?.classList.remove("group-hover:ml-1");
+
+    mouseLeave.addEventListener("mouseenter", () =>{
+      plus?.classList.add("group-hover:ml-1");
+    });
+
+    mouseLeave.addEventListener("mouseleave", function() {
+      plus?.classList.remove("group-hover:ml-1");
+    });
+  });
 });
