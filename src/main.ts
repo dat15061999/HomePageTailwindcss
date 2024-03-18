@@ -66,7 +66,7 @@ document.querySelector(".button-rent")?.addEventListener("click", () => handleCh
 document.querySelector(".button-buy")?.addEventListener("click", () => handleChangeActivated(".button-buy"));
 document.querySelector(".button-sell")?.addEventListener("click", () => handleChangeActivated(".button-sell"));
 
-// 4000
+
 document.addEventListener("DOMContentLoaded", function () {
   const countElement = document.querySelector(".count-animate");
 
@@ -196,3 +196,52 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // import { animationSlide } from "./gasp.ts";
 // animationSlide(document.querySelector('#animation-slide')!, 0)
+
+interface MenuItem {
+  menuName: string;
+  submenuItems: string[];
+}
+
+interface MenuData {
+  menuItems: MenuItem[];
+}
+
+const data: MenuData = {
+  menuItems: [
+    {
+      menuName: 'Home',
+      submenuItems: ['Home One', 'Home Two', 'Home Three', 'Home Four', 'Home Five', 'Home Video', 'Home Map'],
+    },
+    {
+      menuName: 'Pages',
+      submenuItems: [
+        'Property',
+        'Property Sidebar',
+        'Property Details',
+        'Add new Listing',
+        'Map Location',
+        'About us',
+        'FAQ',
+        'Cheack out',
+        'Cart',
+        'Login',
+        'Account',
+      ],
+    },
+    {
+      menuName: 'Project',
+      submenuItems: ['Project', 'Project Details'],
+    },
+    {
+      menuName: 'Blog',
+      submenuItems: ['Blog Classic', 'Blog Details'],
+    },
+  ],
+};
+
+const template = Handlebars.compile(document.getElementById('menu-template')?.innerHTML);
+const html = template(data);
+const menuContainer = document.getElementById('menu-container');
+if (menuContainer !== null && menuContainer !== undefined) {
+  menuContainer.innerHTML = html;
+}

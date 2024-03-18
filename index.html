@@ -14,6 +14,9 @@
   <!--  line-swiper slide  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+  <!--HandleBar-->
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
   <!--  line-awesome 1  -->
   <link href="https://cdn.jsdelivr.net/npm/line-awesome@1/dist/line-awesome/css/line-awesome.min.css"
     rel="stylesheet" />
@@ -56,9 +59,9 @@
   <nav class="nav-menu bg-slate-50 shadow-md w-full h-16 lg:h-28 z-20 opacity-95">
     <div class="flex flex-wrap justify-between text-base items-center mx-2 sm:mx-6 lg:mx-8 xl:mx-16 px-3">
       <a href="javascript:void(0)" class="py-3 lg:py-10">
-        <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/logo/logo.png" alt="" />
+        <img src="/images/logo.png" alt="" />
       </a>
-      <ul class="hidden lg:flex flex-wrap gap-6 items-center">
+      <!-- <ul class="hidden lg:flex flex-wrap gap-6 items-center">
         <li class="relative group py-3 lg:py-10">
           <a href="javascript:void(0)"
             class="text-orange-400 cursor-default items-center flex justify-center gap-2 hover:text-orange-400">
@@ -234,7 +237,36 @@
         <li class="relative group py-10">
           <a href="javascript:void(0)" class="cursor-default items-center gap-2 hover:text-orange-400"> Contact </a>
         </li>
-      </ul>
+      </ul> -->
+      <div id="menu-container">
+        <script id="menu-template" type="text/x-handlebars-template">
+          <ul class="hidden lg:flex flex-wrap gap-6 items-center">
+            {{#each menuItems}}
+              <li class="relative group py-3 lg:py-10">
+                <a href="#" class="cursor-default items-center flex justify-center gap-2 hover:text-orange-400">
+                  {{menuName}}
+                  <ion-icon name="chevron-down-outline" class="group-hover:rotate-180"></ion-icon>
+                </a>
+                <ul class="absolute mt-9 bg-white right-2 opacity-0 transition left-0 border rounded-md p-2 min-w-48 group-hover:translate-y-1 translate-y-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform">
+                  {{#each submenuItems}}
+                    <li class="hover:bg-slate-300 p-2 rounded-md main-icon">
+                      <div class="flex flex-wrap items-center gap-1">
+                        <ion-icon name="play-forward" class="hidden"></ion-icon>
+                        <p>{{this}}</p>
+                      </div>
+                    </li>
+                  {{/each}}
+                </ul>
+              </li>
+            {{/each}}
+            <li class="relative group py-10">
+              <a href="#" class="cursor-default items-center gap-2 hover:text-orange-400"> Contact </a>
+            </li>
+          </ul>
+        </script>
+      </div>
+
+
       <div class="hidden lg:flex flex-wrap gap-6 items-center">
         <ion-icon name="stats-chart"
           class="-rotate-90 text-3xl cursor-pointer hover:text-orange-300 transition ease-in-out mr-3">
@@ -257,7 +289,7 @@
       class="navbar fixed top-0 lg:hidden bg-slate-50 h-full duration-500 ease-in-out transition w-72 -translate-x-72 transform overflow-y-scroll z-30">
       <div class="p-6">
         <div class="pt-3 flex flex-wrap justify-between">
-          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/logo/logo.png" alt="">
+          <img src="/images/logo.png" alt="">
           <ion-icon name="close-circle" id="closeNar"
             class="text-3xl hover:cursor-pointer absolute top-5 right-5 text-slate-300 hover:text-slate-700"></ion-icon>
         </div>
@@ -409,14 +441,11 @@
             necessitatibus omnis fugiat reiciendis.
         </div>
         <div class="relative max-h-full z-1 mt-80 sm:mt-96 lg:mt-0">
-          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/banner-img.png" alt=""
-            class="w-full h-auto">
-          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-triangle.png" alt=""
-            class="absolute animate-rotation  top-10 ">
-          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-circle.png" alt=""
-            class="absolute right-64 md:right-96 animate-rotationScale top-32 ">
-          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/shapes/shape-moon.png" alt=""
-            class="absolute right-10 animate-turnOver top-32 transform-cpu">
+          <img src="/images/banner-img.png" alt="" class="w-full h-auto img-1">
+          <img src="/images/shape-triangle.png" alt="" class="absolute animate-rotation top-10 size-5 sm:size-20">
+          <img src="/images/shape-circle.png" alt=""
+            class="absolute right-64 md:right-96 animate-rotationScale top-32 size-5 sm:size-20">
+          <img src="/images/shape-moon.png" alt="" class="absolute right-10 animate-turnOver top-32 size-5 sm:size-20">
         </div>
         <div class="z-10 pt-20 absolute top-36 sm:top-48 lg:top-64 w-full">
           <form>
@@ -463,58 +492,57 @@
 
   <!-- About section start -->
   <section class="bg-gray-100">
-    <div class="lg:pb-28 pb-12 pt-10">
-      <div class="mx-2 sm:mx-6 lg:mx-8 xl:mx-16 sm:p-3 px-3 lg:grid lg:grid-cols-2 md:gap-6">
+    <div class="pb-12 pt-10 lg:pb-28">
+      <div class="mx-2 px-3 sm:mx-6 sm:p-3 lg:mx-8 grid lg:grid-cols-2 grid-cols-1 gap-10 xl:gap-16 xl:mx-10">
         <div
-          class="bg-gradient-to-l bg-[#f7e3cc] xl:w-[600px] xl:h-[610px] rounded-lg relative lg:w-[460px] lg:h-[470px] md:w-[600px] md:h-[610px] sm:w-[550px] sm:h-[610px] w-[100%] h-[450px]">
-          <div class="mx-2 my-16 absolute xl:left-[4rem] lg:left-[3rem] md:left-[4rem] sm:left-[3rem] left-[0.5rem]">
-            <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/about-img.png" alt=""
-              class="xl:w-auto xl:h-auto justify-center lg:w-[350px] lg:h-[350px] sm:w-auto sm:h-auto w-auto h-auto" />
-
-            <div class="absolute inset-x-0 -top-[64px] flex justify-center">
-              <div class="bg-gray-100 p-4 xl:w-[250px] lg:w-[250px] h-[64px] sm:w-[300px] w-[90%]"></div>
-            </div>
+          class="relative flex justify-between mt-10 lg:mb-0 md:mb-32 w-full h-full md:h-[85%] lg:h-[70%] mr-20 lg:mr-0">
+          <div
+            class="absolute top-0 left-0 w-1/4 lg:w-1/3 h-full rounded-lg bg-gradient-to-l from-orange-100 via-orange-200/65 to-orange-500/30">
+          </div>
+          <div
+            class="absolute top-0 right-0 w-1/4 lg:w-1/3 h-full rounded-lg bg-gradient-to-r from-orange-100 via-orange-200/65 to-orange-500/30">
+          </div>
+          <div class="relative p-10 xl:p-20 w-full h-full mx-0 lg:mx-auto">
+            <img src="/images/about-img.png" class="w-full md:w-2/3 lg:w-full h-full justify-center px-auto mx-auto" />
             <div
-              class="absolute xl:left-[25%] lg:left-[15%] md:left-[22%] sm:left-[25%] left-[20%] -bottom-[3.5rem] bg-white border rounded-lg flex justify-center gap-4 sm:p-6 p-1">
+              class="absolute left-[33%] sm:left-[34%] md:left-[40%] lg:left-[30%] bottom-0 bg-white border rounded-lg flex justify-center gap-1 xl:gap-4 p-1 sm:p-5 xl:p-6">
               <span class="">
-                <i class="fas fa-users text-gradient text-orange-500 text-xl md:text-4xl my-1 md:my-2"></i>
+                <i class="fas fa-users text-gradient text-orange-500 text-xl xl:text-4xl my-1 xl:my-2"></i>
               </span>
-              <div class="my-1 md:my-2">
-                <h5 class="font-medium text-lg md:text-3xl count-animate" style="visibility: visible"></h5>
-                <span class="fs-18 text-gray-400 text-sm md:text-xl">Satisfied Clients</span>
+              <div class="my-1 xl:my-2">
+                <h5 class="font-medium text-lg xl:text-3xl count-animate" style="visibility: visible"></h5>
+                <span class="fs-18 text-gray-400 text-sm xl:text-xl">Satisfied Clients</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="mt-20">
+        <div class="*:pb-8 pt-8 mg:pt-0">
           <div>
-            <span class="uppercase border-none bg-white text-orange-500 font-semibold py-1 px-2 rounded-md">about
+            <span class="rounded-md border-none bg-white px-2 py-1 font-semibold uppercase text-orange-500">about
               us</span>
-            <h2 class="my-3 font-serif text-2xl md:text-5xl font-semibold">
-              Stay with us feel at home Your perfect stay awaits
-            </h2>
-            <p class="text-gray-500 text-lg tracking-wide">
-              Real Estate is a vast industry that deals with the buying, selling, and renting of properties. It inv
-              transactions related to residential
-            </p>
+            <h2 class="my-3 font-serif text-2xl font-semibold lg:text-3xl xl:text-5xl tracking-wider">Stay with us feel
+              at home Your
+              perfect stay
+              awaits</h2>
+            <p class="text-lg tracking-wide text-gray-500">Real Estate is a vast industry that deals with the buying,
+              selling, and renting of properties. It inv transactions related to residential</p>
           </div>
-          <div class="flex mt-6 border border-gray-400 rounded-md py-4 px-4 shadow-sm">
+          <div class="mt-6 flex rounded-md border border-gray-400 px-4 py-4 shadow-sm">
             <div class="w-32">
-              <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/icons/about-icon.svg" class="w-25" />
+              <img src="/images/about-icon.svg" class="w-25" />
             </div>
             <div class="">
               <h6 class="text-xl font-medium">Your Dream Home Awaits</h6>
-              <p class="mt-3 text-gray-400 text-xs">
-                Real Estate is a vast industry that deals with the buying, selling, and renting of properties. It inv
-                transactions related to residential, commercial, and industrial properties
-              </p>
+              <p class="mt-3 text-xs text-gray-400">Real Estate is a vast industry that deals with the buying, selling,
+                and renting of properties. It inv transactions related to residential, commercial, and industrial
+                properties</p>
             </div>
           </div>
           <div class="mt-8 flex">
-            <div class="border rounded-md py-4 px-8 bg-gradient-to-t from-orange-600 to-orange-400">
+            <div class="rounded-md border bg-gradient-to-t from-orange-600 to-orange-400 px-8 py-4">
               <a href="#" class="btn btn-main uppercase text-white">Learn More
                 <span class="icon-right">
-                  <i class="fas fa-arrow-right text-white ml-2"></i>
+                  <i class="fas fa-arrow-right ml-2 text-white"></i>
                 </span>
               </a>
             </div>
@@ -546,11 +574,11 @@
           </a>
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-16 text-white gsap">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-16 text-white">
         <div class="grid grid-cols-2 md:grid-cols-1 group relative rounded-b-lg overflow-hidden">
           <div class="relative overflow-hidden">
             <a href="#" class="">
-              <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/property-1.png" alt=""
+              <img src="/images/property-1.png" alt=""
                 class="group-hover:scale-105 w-full max-w-full h-full duration-500" />
             </a>
             <span class="absolute top-0 right-0 bg-orange-400 rounded py-1 px-2">Sale</span>
@@ -588,16 +616,16 @@
             </div>
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:-translate-x-80 duration-500 transform">
+            class="absolute hidden md:inline bottom-0 left-[55%] group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:-translate-x-80 duration-500 ">
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:translate-x-0 duration-500 transform">
+            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:translate-x-0 duration-500 ">
           </div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-1 group relative rounded-b-lg overflow-hidden">
           <div class="relative overflow-hidden">
             <a href="#" class="">
-              <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/property-4.png" alt=""
+              <img src="/images/property-4.png" alt=""
                 class="group-hover:scale-105 w-full max-w-full h-full duration-500" />
             </a>
             <span class="absolute top-0 right-0 bg-orange-400 rounded py-1 px-2">Sale</span>
@@ -635,16 +663,16 @@
             </div>
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:-translate-x-80 duration-500 transform">
+            class="absolute hidden md:inline bottom-0 left-[55%] group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:-translate-x-80 duration-500 ">
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:translate-x-0 duration-500 transform">
+            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:translate-x-0 duration-500 ">
           </div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-1 group relative rounded-b-lg overflow-hidden">
           <div class="relative overflow-hidden">
             <a href="#" class="">
-              <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/property-5.png" alt=""
+              <img src="/images/property-6.png" alt=""
                 class="group-hover:scale-105 w-full max-w-full h-full duration-500" />
             </a>
             <span class="absolute top-0 right-0 bg-orange-400 rounded py-1 px-2">Sale</span>
@@ -682,16 +710,16 @@
             </div>
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:-translate-x-80 duration-500 transform">
+            class="absolute hidden md:inline bottom-0 left-[55%] group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:-translate-x-80 duration-500 ">
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:translate-x-0 duration-500 transform">
+            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:translate-x-0 duration-500 ">
           </div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-1 group relative rounded-b-lg overflow-hidden">
           <div class="relative overflow-hidden">
             <a href="#" class="">
-              <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/property-6.png" alt=""
+              <img src="/images/property-6.png" alt=""
                 class="group-hover:scale-105 w-full max-w-full h-full duration-500" />
             </a>
             <span class="absolute top-0 right-0 bg-orange-400 rounded py-1 px-2">Sale</span>
@@ -729,16 +757,16 @@
             </div>
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:-translate-x-80 duration-500 transform">
+            class="absolute hidden md:inline bottom-0 left-[55%] group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:-translate-x-80 duration-500 ">
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:translate-x-0 duration-500 transform">
+            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:translate-x-0 duration-500 ">
           </div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-1 group relative rounded-b-lg overflow-hidden">
           <div class="relative overflow-hidden">
             <a href="#" class="">
-              <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/property-2.png" alt=""
+              <img src="/images/property-2.png" alt=""
                 class="group-hover:scale-105 w-full max-w-full h-full duration-500" />
             </a>
             <span class="absolute top-0 right-0 bg-orange-400 rounded py-1 px-2">Sale</span>
@@ -776,16 +804,16 @@
             </div>
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:-translate-x-80 duration-500 transform">
+            class="absolute hidden md:inline bottom-0 left-[55%] group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:-translate-x-80 duration-500 ">
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:translate-x-0 duration-500 transform">
+            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:translate-x-0 duration-500 ">
           </div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-1 group overflow-hidden relative rounded-b-lg">
           <div class="relative overflow-hidden">
             <a href="#" class="">
-              <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/property-3.png" alt=""
+              <img src="/images/property-3.png" alt=""
                 class="group-hover:scale-105 w-full max-w-full h-full duration-500" />
             </a>
             <span class="absolute top-0 right-0 bg-orange-400 rounded py-1 px-2">Sale</span>
@@ -802,7 +830,7 @@
             </h6>
             <p class="flex gap-2 my-4 text-gray-400 text-xs md:text-base">
               <span class="icon"> <i class="fas fa-map-marker-alt"></i></span>
-              66 Broklyant, New York America
+              66 Broklyant, New York America 123123
             </p>
             <div class="border-1px border-gray-500 pb-3 md:pb-5">
               <div class="grid grid-cols-2 md:grid-cols-3 mt-2 text-gray-200 text-sm gap-1">
@@ -823,10 +851,10 @@
             </div>
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:-translate-x-80 duration-500 transform">
+            class="absolute hidden md:inline bottom-0 left-[55%] group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:-translate-x-80 duration-500 ">
           </div>
           <div
-            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-500 w-0 transition-all group-hover:w-full group-hover:translate-x-0 duration-500 transform">
+            class="absolute bottom-0 left-1/2 group-hover:border-b-4 group-hover:border group-hover:border-orange-300 w-0  group-hover:w-full group-hover:translate-x-0 duration-500 ">
           </div>
         </div>
       </div>
@@ -855,7 +883,7 @@
       <div class="group relative mt-6 rounded-md border bg-[#f8f8f8] px-3 hover:bg-gray-200/95">
         <div class="overflow-hidden px-6 py-8">
           <div class="flex w-full max-w-16 items-center justify-center rounded-full bg-orange-400">
-            <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/icons/property-type-icon1.svg" alt=""
+            <img src="/images/property-type-icon1.svg" alt=""
               class="transform object-cover px-2 py-2 text-white transition duration-500 ease-in-out group-hover:-scale-x-100" />
           </div>
           <h6 class="mt-4 w-44 text-xl font-semibold">Seamless Solutions Your Success</h6>
@@ -867,7 +895,7 @@
       <div class="group relative mt-6 rounded-md border bg-[#f8f8f8] px-3 hover:bg-gray-200/95">
         <div class="overflow-hidden px-6 py-8">
           <div class="flex w-full max-w-16 items-center justify-center rounded-full bg-orange-400">
-            <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/icons/property-type-icon2.svg" alt=""
+            <img src="/images/property-type-icon2.svg" alt=""
               class="transform object-cover px-2 py-2 text-white transition duration-500 ease-in-out group-hover:-scale-x-100" />
           </div>
           <h6 class="mt-4 w-44 text-xl font-semibold">Seamless Solutions Your Success</h6>
@@ -879,7 +907,7 @@
       <div class="group relative mt-6 rounded-md border bg-[#f8f8f8] px-3 hover:bg-gray-200/95">
         <div class="overflow-hidden px-6 py-8">
           <div class="flex w-full max-w-16 items-center justify-center rounded-full bg-orange-400">
-            <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/icons/property-type-icon3.svg" alt=""
+            <img src="/images/property-type-icon3.svg" alt=""
               class="transform object-cover px-2 py-2 text-white transition duration-500 ease-in-out group-hover:-scale-x-100" />
           </div>
           <h6 class="mt-4 w-44 text-xl font-semibold">Seamless Solutions Your Success</h6>
@@ -891,12 +919,12 @@
     </div>
   </section>
   <!--  Property Section End  -->
+
   <!--Play Video start-->
   <div class="relative z-10 mt-10 mx-2 sm:mx-6 lg:mx-8 xl:mx-16 sm:p-3">
     <div class="items-center justify-center">
       <div class="relative mx-auto my-auto min-h-56 max-w-full">
-        <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/video-popup.png" alt=""
-          class="h-full min-h-56 w-full max-w-full rounded-xl" />
+        <img src="/images/video-popup.png" alt="" class="h-full min-h-56 w-full max-w-full rounded-xl" />
         <div
           class="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded cursor-pointer button-open-video">
           <span class="relative flex ">
@@ -959,7 +987,7 @@
       <div class="relative flex items-center justify-between">
         <div class=" ">
           <div class="h-full max-w-full w-2/3 sm:left-0 xl:w-full">
-            <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/message-img.png" alt=""
+            <img src="/images/message-img.png" alt=""
               class="h-full left-0 min-h-[691px] w-full max-w-72 lg:min-h-[798px] sm:max-w-screen-xl " />
           </div>
         </div>
@@ -1035,8 +1063,7 @@
     <div class="swiper mySwiper max-w-full">
       <div class="swiper-wrapper">
         <div class="swiper-slide group z-1 relative overflow-hidden">
-          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/portfolio4.png" alt=""
-            class="z-1 gsap" />
+          <img src="/images/portfolio4.png" alt="" class="z-1" />
           <div
             class="translate-y-40 group-hover:translate-y-0 transform duration-200 bg-black z-20 absolute bottom-0 text-white p-5">
             <h1 class="text-xl hover:text-orange-500 font-semibold text-start mb-3">
@@ -1052,7 +1079,7 @@
           </div>
         </div>
         <div class="swiper-slide group z-1 relative ">
-          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/portfolio3.png" alt="" class="gsap" />
+          <img src="/images/portfolio3.png" alt="" />
           <div
             class="translate-y-40 group-hover:translate-y-0 transform duration-200 bg-black z-20 absolute bottom-0 text-white p-5">
             <h1 class="text-xl hover:text-orange-500 font-semibold text-start mb-3">
@@ -1067,8 +1094,8 @@
             </div>
           </div>
         </div>
-        <div class="swiper-slide group z-1 relative gsap">
-          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/portfolio2.png" alt="" class="gsap" />
+        <div class="swiper-slide group z-1 relative ">
+          <img src="/images/portfolio2.png" alt="" />
           <div
             class="translate-y-40 group-hover:translate-y-0 transform duration-200 bg-black z-20 absolute bottom-0 text-white p-5">
             <h1 class="text-xl hover:text-orange-500 font-semibold text-start mb-3">
@@ -1083,8 +1110,8 @@
             </div>
           </div>
         </div>
-        <div class="swiper-slide group z-1 relative gsap">
-          <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/portfolio1.png" alt="" class="gsap" />
+        <div class="swiper-slide group z-1 relative">
+          <img src="/images/portfolio1.png" alt="" />
           <div
             class="translate-y-40 group-hover:translate-y-0 transform duration-200 bg-black z-20 absolute bottom-0 text-white p-5">
             <h1 class="text-xl hover:text-orange-500 font-semibold text-start mb-3">
@@ -1123,21 +1150,19 @@
         </p>
       </div>
       <div class="col-span-2 pt-10 max-w-full relative">
-        <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/testimonial-img.png" alt=""
-          class="w-full pl-10 h-[500px] md:h-full object-cover" />
+        <img src="/images/testimonial-img.png" alt="" class="w-full pl-10 h-[500px] md:h-full object-cover" />
         <div class="absolute top-28 bg-white p-8 lg:p-14 w-full md:w-2/3 border-collapse rounded-md shadow-md">
           <div class="swiper mySwiperContent">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="grid grid-cols-4 text-start">
+            <div class="swiper-wrapper gsap">
+              <div class="swiper-slide gsap next">
+                <div class="grid grid-cols-4 text-start ">
                   <div class="flex flex-col col-span-2">
                     <h3 class="text-xl font-bold">Sakib Fahad</h3>
                     <h6 class="text-gray-500 font-medium">Content Creator</h6>
                   </div>
                   <div class="grid grid-cols-subgrid gap-4 col-span-2">
                     <div class="col-start-2 flex justify-end items-end text-end">
-                      <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/icons/quote.svg" alt=""
-                        class="text-sm" style="width: 50px; height: 50px" />
+                      <img src="/images/quote.svg" alt="" class="text-sm" style="width: 50px; height: 50px" />
                     </div>
                   </div>
                   <div class="col-span-4 text-start py-3 md:py-10">
@@ -1155,7 +1180,7 @@
                   </div>
                 </div>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide gsap next">
                 <div class="grid grid-cols-4 text-start">
                   <div class="flex flex-col col-span-2">
                     <h3 class="text-xl font-bold">David Nguyen</h3>
@@ -1163,8 +1188,7 @@
                   </div>
                   <div class="grid grid-cols-subgrid gap-4 col-span-2">
                     <div class="col-start-2 flex justify-end items-end text-end">
-                      <img src="https://wowtheme7.com/tf/cityscape/demo/assets/images/icons/quote.svg" alt=""
-                        class="text-sm" style="width: 50px; height: 50px" />
+                      <img src="/images/quote.svg" alt="" class="text-sm" style="width: 50px; height: 50px" />
                     </div>
                   </div>
                   <div class="col-span-4 text-start py-10">
@@ -1187,12 +1211,12 @@
           <div class="absolute bottom-3 md:bottom-10">
             <div class="flex gap-4">
               <button
-                class="swiper-btn-prev gsap next rounded-full text-xl p-1 bg-orange-100 hover:bg-orange-500 hover:text-white text-orange-400 hover:-translate-x-1 duration-500 flex justify-center items-center w-10 h-10"
+                class="swiper-btn-prev rounded-full text-xl p-1 bg-orange-100 hover:bg-orange-500 hover:text-white text-orange-400 hover:-translate-x-1 duration-500 flex justify-center items-center w-10 h-10"
                 type="button">
                 <ion-icon name="arrow-back"></ion-icon>
               </button>
               <button
-                class="swiper-btn-next gsap next rounded-full text-xl p-1 bg-orange-100 hover:bg-orange-500 hover:text-white text-orange-400 hover:translate-x-1 duration-500 flex justify-center items-center w-10 h-10"
+                class="swiper-btn-next rounded-full text-xl p-1 bg-orange-100 hover:bg-orange-500 hover:text-white text-orange-400 hover:translate-x-1 duration-500 flex justify-center items-center w-10 h-10"
                 type="button">
                 <ion-icon name="arrow-forward"></ion-icon>
               </button>
@@ -1224,8 +1248,7 @@
         <div
           class="relative rounded-xl border border-x-gray-200 pb-5 bg-[#f7f7f7fe] mb-10 sm:mb-0 hover:shadow-md group">
           <div class="border border-gray-300 overflow-hidden">
-            <img class="w-full transition-all transform group-hover:scale-110"
-              src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/blog1.png" />
+            <img class="w-full transition-all transform group-hover:scale-110" src="/images/blog1.png" />
             <div class="absolute bottom-40 right-8 px-3 py-2 rounded-lg bg-white">
               <div class="text-2xl font-semibold">09</div>
               <div class="text-sm text-gray-400">Mar</div>
@@ -1257,8 +1280,7 @@
         <div
           class="relative rounded-lg border border-x-gray-200 pb-5 bg-[#f7f7f7fe] mb-10 sm:mb-0 hover:shadow-md group">
           <div class="border border-gray-300 overflow-hidden">
-            <img class="w-full transition-all transform group-hover:scale-110"
-              src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/blog2.png" />
+            <img class="w-full transition-all transform group-hover:scale-110" src="/images//blog2.png" />
           </div>
           <div class="absolute bottom-40 right-8 px-3 py-2 rounded-lg bg-white">
             <div class="text-2xl font-semibold">09</div>
@@ -1290,8 +1312,7 @@
         <div
           class="relative rounded-lg border border-x-gray-200 pb-5 bg-[#f7f7f7fe] mb-10 sm:mb-0 hover:shadow-md group">
           <div class="border border-gray-300 overflow-hidden">
-            <img class="w-full transition-all transform group-hover:scale-110"
-              src="https://wowtheme7.com/tf/cityscape/demo/assets/images/thumbs/blog1.png" />
+            <img class="w-full transition-all transform group-hover:scale-110" src="/images/blog1.png" />
           </div>
           <div class="absolute bottom-40 right-8 px-3 py-2 rounded-lg bg-white">
             <div class="text-2xl font-semibold">09</div>
@@ -1327,7 +1348,7 @@
     <div class="max-w-7xl mx-auto px-6 pt-32 grid md:grid-cols-3 gap-10 lg:gap-32 pb-10">
       <div class="text-white">
         <div>
-          <img class="w-36" src="https://wowtheme7.com/tf/cityscape/demo/assets/images/logo/white-logo.png" />
+          <img class="w-36" src="/images/white-logo.png" />
         </div>
         <div class="text-sm text-gray-400 mt-5">It is a long established fact that a reader will be distracted</div>
         <div class="font-bold text-lg mt-5">Lets Work Together</div>
