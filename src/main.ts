@@ -39,6 +39,7 @@ setupFormValid();
 //   });
 //   console.log(test);
 // };
+
 function handleAddNavMenuItem() {
   const menuItems = document.querySelectorAll(".activated-narbar");
   menuItems?.forEach(items => {
@@ -120,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     elementsToCount.forEach(function (element) {
       const countElement = document.querySelector(element.selector) as HTMLElement | null;
       if (countElement && !countedElements.includes(element.selector)) {
-        const elementPosition = countElement.getBoundingClientRect().top; s
+        const elementPosition = countElement.getBoundingClientRect().top;
         const screenHeight = window.innerHeight;
         const triggerPosition = screenHeight * 0.75;
 
@@ -193,3 +194,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// import { animationSlide } from "./gasp.ts";
+// animationSlide(document.querySelector('#animation-slide')!, 0)

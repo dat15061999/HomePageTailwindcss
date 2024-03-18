@@ -26,16 +26,16 @@ export const setupSwiper = () => {
   new Swiper(".mySwiper", {
     ...defaultSetting,
     navigation: false,
-    // effect: "coverflow",
-    // grabCursor: true,
-    // centeredSlides: true,
-    // coverflowEffect: {
-    //   rotate: 0,
-    //   stretch: 0,
-    //   depth: 0,
-    //   modifier: 3,
-    //   slidesPerView: 3,
-    // },
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 0,
+      modifier: 3,
+      slidesPerView: 3,
+    },
     breakpoints: {
       1366: {
         slidesPerView: 3,
