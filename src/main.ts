@@ -94,176 +94,24 @@ addClickEventToActivated(".button-rent");
 addClickEventToActivated(".button-buy");
 addClickEventToActivated(".button-sell");
 
+// Using srcoll 
+import { scrollWindow, breakPointProgress } from './scroll.ts'
+scrollWindow();
+breakPointProgress();
 
-document.addEventListener("DOMContentLoaded", function () {
-  const countElement = document.querySelector(".count-animate");
-
-  const targetNumber = 4000;
-  let currentNumber = 0;
-  const increment = Math.ceil(targetNumber / 100);
-  if (countElement) {
-    const interval = setInterval(function () {
-      countElement.textContent = currentNumber.toLocaleString() + "+";
-
-      if (currentNumber >= targetNumber) {
-        clearInterval(interval);
-      }
-
-      currentNumber += increment;
-    }, 10);
-  }
-
-});
-//count
-document.addEventListener('DOMContentLoaded', function () {
-  const countedElements: string[] = [];
-  let allTargetsReached = false;
-
-  function countUp(elementSelector: string, targetNumber: number, suffix = '', delay: number | undefined) {
-    const countElement = document.querySelector(elementSelector) as HTMLElement | null;
-    let currentNumber = 0; // Change from const to let
-    const increment = Math.ceil(targetNumber / targetNumber);
-
-    const interval = setInterval(function () {
-      if (countElement) {
-        countElement.textContent = currentNumber.toLocaleString() + suffix;
-      }
-
-      if (currentNumber >= targetNumber) {
-        clearInterval(interval);
-        checkAllTargetsReached(); // Kiểm tra nếu tất cả các target đã được đạt đến
-      }
-
-      currentNumber += increment;
-    }, delay);
-  }
-
-  function checkScrollAndCount() {
-    const elementsToCount: { selector: string; target: number; suffix: string; delay: number }[] = [
-      { selector: '.count-patients', target: 200, suffix: '', delay: 20 },
-      { selector: '.count-hearts', target: 20, suffix: '', delay: 200 },
-      { selector: '.count-doctors', target: 10, suffix: 'K', delay: 400 },
-      { selector: '.count-works', target: 900, suffix: '', delay: -50 },
-    ];
-
-    elementsToCount.forEach(function (element) {
-      const countElement = document.querySelector(element.selector) as HTMLElement | null;
-      if (countElement && !countedElements.includes(element.selector)) {
-        const elementPosition = countElement.getBoundingClientRect().top;
-        const screenHeight = window.innerHeight;
-        const triggerPosition = screenHeight * 0.75;
-
-        if (elementPosition < triggerPosition) {
-          countUp(element.selector, element.target, element.suffix, element.delay);
-          countedElements.push(element.selector);
-        }
-      }
-    });
-  }
-
-  function checkAllTargetsReached() {
-    if (!allTargetsReached && countedElements.length === 4) {
-      allTargetsReached = true;
-      console.log("Tất cả các target đã được đạt đến cùng một lúc.");
-    }
-  }
-
-  checkScrollAndCount();
-  window.addEventListener('scroll', function () {
-    checkScrollAndCount();
-  });
-});
-
-
-
-window.addEventListener('scroll', () => {
-  const navMenu = document.querySelector('.nav-menu');
-  if (window.scrollY > 123) {
-    navMenu?.classList.add('fixed')
-    navMenu?.classList.add('top-0')
-    navMenu?.classList.add('left-0')
-    navMenu?.classList.add('right-0')
-    navMenu?.classList.add('shadow-lg')
-    navMenu?.classList.add('opacity-85')
-  } else {
-    navMenu?.classList.remove('fixed')
-    navMenu?.classList.remove('top-0')
-    navMenu?.classList.remove('left-0')
-    navMenu?.classList.remove('right-0')
-    navMenu?.classList.remove('shadow-lg')
-    navMenu?.classList.remove('opacity-85')
-  }
-
-})
-
+// Using swpier slice for img
 import { setupSwiper } from './swiper.ts';
 setupSwiper();
 
-document.addEventListener("DOMContentLoaded", () => {
-  const mouseLeaves = document.querySelectorAll("#mouseLeave");
+// Count Function
+import { countNumber } from './count.ts';
+countNumber();
 
-  mouseLeaves.forEach((mouseLeave) => {
-    const plus = mouseLeave.querySelector("#plus");
+// Handle bar for Nav
+import { handleBar } from './handleBar.ts';
+handleBar();
 
-    plus?.classList.remove("group-hover:ml-1");
-
-    mouseLeave.addEventListener("mouseenter", () => {
-      plus?.classList.add("group-hover:ml-1");
-    });
-
-    mouseLeave.addEventListener("mouseleave", function () {
-      plus?.classList.remove("group-hover:ml-1");
-    });
-  });
-});
-// import { animationSlide } from "./gasp.ts";
-// animationSlide(document.querySelector('#animation-slide')!, 0)
-
-interface MenuItem {
-  menuName: string;
-  submenuItems: string[];
-}
-
-interface MenuData {
-  menuItems: MenuItem[];
-}
-
-const data: MenuData = {
-  menuItems: [
-    {
-      menuName: 'Home',
-      submenuItems: ['Home One', 'Home Two', 'Home Three', 'Home Four', 'Home Five', 'Home Video', 'Home Map'],
-    },
-    {
-      menuName: 'Pages',
-      submenuItems: [
-        'Property',
-        'Property Sidebar',
-        'Property Details',
-        'Add new Listing',
-        'Map Location',
-        'About us',
-        'FAQ',
-        'Cheack out',
-        'Cart',
-        'Login',
-        'Account',
-      ],
-    },
-    {
-      menuName: 'Project',
-      submenuItems: ['Project', 'Project Details'],
-    },
-    {
-      menuName: 'Blog',
-      submenuItems: ['Blog Classic', 'Blog Details'],
-    },
-  ],
-};
-
-const template = Handlebars.compile(document.getElementById('menu-template')?.innerHTML);
-const html = template(data);
-const menuContainer = document.getElementById('menu-container');
-if (menuContainer !== null && menuContainer !== undefined) {
-  menuContainer.innerHTML = html;
-}
+// General function 
+import { hanleGroupHoverUseMouse, countAnimate } from './addEvent.ts'
+countAnimate();
+hanleGroupHoverUseMouse();
