@@ -22,14 +22,26 @@ export function breakPointProgress() {
   window.addEventListener('scroll', () => {
     const progressPoint = document.querySelector('.progress-point');
     const hiddenContent = 'hidden';
-    console.log('window.scrollY', ` ${7128 - window.scrollY}`);
+
+    const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+
     const progress = document.querySelector('.progress-check');
+    const radius = 192; // Bán kính của vòng tròn
+    const circumference = 2 * Math.PI * radius; // Chu vi của vòng tròn
+
+    const scrollChangeValue = ((maxScrollY - window.scrollY) / maxScrollY) * 100;
+    // console.log('scrollChangeValue', ` ${scrollChangeValue}`);
+
+    const percentageToShow = 100 - (scrollChangeValue < 0 ? 0 : scrollChangeValue); // Phần trăm của vòng tròn muốn hiển thị
+    const strokeDasharray = circumference * (percentageToShow / 100); // Độ dài của phần nét đứt trên chu vi
+    const strokeDasharrayFull = circumference * (100 / 100);
+
     if (window.scrollY > 123) {
       progressPoint?.classList.remove(hiddenContent)
-      if (progress instanceof HTMLElement) {
-        progress.style.strokeDasharray = '307.919, 307.919';
-        progress.style.strokeDashoffset = ` ${7128 - window.scrollY}`;
-        progress.style.strokeWidth = `5px`;
+      if (progress instanceof SVGCircleElement) {
+        progress.style.strokeDasharray = `${strokeDasharray},${strokeDasharrayFull}`;
+        progress.style.strokeDashoffset = `0`;
+        progress.style.strokeWidth = `20px`;
       }
 
     }
