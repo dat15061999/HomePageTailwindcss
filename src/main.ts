@@ -47,24 +47,52 @@ function handleAddNavMenuItem() {
   })
 }
 
+function handleDocumentIdClick(ClassItem: string, hanldeFunction: () => void) {
+  document.getElementById(ClassItem)?.addEventListener("click", hanldeFunction);
+}
+function handleDocumentSelectorClick(ClassItem: string, hanldeFunction: () => void) {
+  document.querySelector(ClassItem)?.addEventListener("click", hanldeFunction);
+}
+
+//handle button video
+handleDocumentIdClick(".button-open-video", () => handleChangeHidden());
+handleDocumentIdClick(".button-close-video", () => handleChangeHidden());
+
+
 import { handleChangeNav, handleAddNavMenu } from './hoverNav.ts';
 
-document.getElementById("menuNav")?.addEventListener("click", handleChangeNav);
-document.getElementById("closeNar")?.addEventListener("click", handleChangeNav);
-document.querySelector(".backgroundBlack")?.addEventListener("click", handleChangeNav);
+handleDocumentIdClick("menuNav", handleChangeNav);
+handleDocumentIdClick("closeNar", handleChangeNav);
+handleDocumentSelectorClick(".backgroundBlack", handleChangeNav);
+
 document.querySelector(".home")?.addEventListener("click", () => {
   handleAddNavMenu(".home")
   handleAddNavMenuItem();
 });
-document.querySelector(".pages")?.addEventListener("click", () => handleAddNavMenu(".pages"));
-document.querySelector(".project")?.addEventListener("click", () => handleAddNavMenu(".project"));
-document.querySelector(".blog")?.addEventListener("click", () => handleAddNavMenu(".blog"));
+
+function addClickEventToSelector(selector: string) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.addEventListener("click", () => handleAddNavMenu(selector));
+  }
+}
+
+addClickEventToSelector(".pages");
+addClickEventToSelector(".project");
+addClickEventToSelector(".blog");
+
 // button 
 import { handleChangeActivated, handleChangeHidden } from "./activated.ts"
 
-document.querySelector(".button-rent")?.addEventListener("click", () => handleChangeActivated(".button-rent"));
-document.querySelector(".button-buy")?.addEventListener("click", () => handleChangeActivated(".button-buy"));
-document.querySelector(".button-sell")?.addEventListener("click", () => handleChangeActivated(".button-sell"));
+function addClickEventToActivated(selector: string) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.addEventListener("click", () => handleChangeActivated(selector));
+  }
+}
+addClickEventToActivated(".button-rent");
+addClickEventToActivated(".button-buy");
+addClickEventToActivated(".button-sell");
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -167,15 +195,6 @@ window.addEventListener('scroll', () => {
 
 import { setupSwiper } from './swiper.ts';
 setupSwiper();
-
-const buttonOpenVideo = document.querySelector(".button-open-video");
-buttonOpenVideo?.addEventListener("click", () => {
-  handleChangeHidden();
-});
-const buttonCloseVideo = document.querySelector(".button-close-video");
-buttonCloseVideo?.addEventListener("click", () => {
-  handleChangeHidden();
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   const mouseLeaves = document.querySelectorAll("#mouseLeave");
