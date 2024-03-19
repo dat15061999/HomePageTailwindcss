@@ -183,12 +183,14 @@ window.addEventListener('scroll', () => {
     navMenu?.classList.add('top-0')
     navMenu?.classList.add('left-0')
     navMenu?.classList.add('right-0')
+    navMenu?.classList.add('shadow-lg')
     navMenu?.classList.add('opacity-85')
   } else {
     navMenu?.classList.remove('fixed')
     navMenu?.classList.remove('top-0')
     navMenu?.classList.remove('left-0')
     navMenu?.classList.remove('right-0')
+    navMenu?.classList.remove('shadow-lg')
     navMenu?.classList.remove('opacity-85')
   }
 
