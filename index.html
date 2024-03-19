@@ -56,7 +56,7 @@
   <!-- End Header -->
 
   <!-- Nav Bar -->
-  <nav class="nav-menu bg-slate-50 shadow-md w-full h-16 lg:h-28 z-20 opacity-95">
+  <nav class="nav-menu bg-slate-50 shadow-md w-full h-16 lg:h-28 z-20 opacity-95 sticky">
     <div class="flex flex-wrap justify-between text-base items-center mx-2 sm:mx-6 lg:mx-8 xl:mx-16 px-3">
       <a href="javascript:void(0)" class="py-3 lg:py-10">
         <img src="/images/logo.png" alt="" />
@@ -242,12 +242,13 @@
         <script id="menu-template" type="text/x-handlebars-template">
           <ul class="hidden lg:flex flex-wrap gap-6 items-center">
             {{#each menuItems}}
-              <li class="relative group py-3 lg:py-10">
+              <li class="relative group py-3 lg:py-10 z-20">
                 <a href="#" class="cursor-default items-center flex justify-center gap-2 hover:text-orange-400">
                   {{menuName}}
                   <ion-icon name="chevron-down-outline" class="group-hover:rotate-180"></ion-icon>
                 </a>
-                <ul class="absolute mt-9 bg-white right-2 opacity-0 transition left-0 border rounded-md p-2 min-w-48 group-hover:translate-y-1 translate-y-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform">
+                <ul 
+                class="absolute mt-9 bg-white right-2 opacity-0 transition left-0 border rounded-md p-2 min-w-48 group-hover:translate-y-1 translate-y-0 group-hover:opacity-100 duration-500">
                   {{#each submenuItems}}
                     <li class="hover:bg-slate-300 p-2 rounded-md main-icon">
                       <div class="flex flex-wrap items-center gap-1">
@@ -265,7 +266,6 @@
           </ul>
         </script>
       </div>
-
 
       <div class="hidden lg:flex flex-wrap gap-6 items-center">
         <ion-icon name="stats-chart"
@@ -425,7 +425,7 @@
   <!-- End Nav Bar -->
 
   <!-- Main -->
-  <main class="bg-gray-100">
+  <main class="bg-gray-100 z-0">
     <div class="mx-2 sm:mx-6 lg:mx-8 xl:mx-16 px-3 py-20 relative max-h-full">
       <div class="lg:grid lg:grid-cols-2 relative">
         <div class="">

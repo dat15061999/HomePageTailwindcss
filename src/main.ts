@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('scroll', () => {
   const navMenu = document.querySelector('.nav-menu');
   if (window.scrollY > 123) {
-    navMenu?.classList.add('sticky')
+    navMenu?.classList.add('fixed')
     navMenu?.classList.add('top-0')
     navMenu?.classList.add('left-0')
     navMenu?.classList.add('right-0')
@@ -191,6 +191,7 @@ window.addEventListener('scroll', () => {
     navMenu?.classList.remove('right-0')
     navMenu?.classList.remove('opacity-85')
   }
+
 })
 
 import { setupSwiper } from './swiper.ts';
