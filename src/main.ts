@@ -95,9 +95,11 @@ addClickEventToActivated(".button-buy");
 addClickEventToActivated(".button-sell");
 
 // Using srcoll 
-import { scrollWindow, breakPointProgress } from './scroll.ts'
+import { scrollWindow, breakPointProgress, scrollwindowsvg } from './scroll.ts'
 scrollWindow();
 breakPointProgress();
+scrollwindowsvg();
+
 
 // Using swpier slice for img
 import { setupSwiper } from './swiper.ts';

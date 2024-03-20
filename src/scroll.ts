@@ -50,3 +50,13 @@ export function breakPointProgress() {
     }
   });
 }
+
+export function scrollwindowsvg (){
+  
+  document.querySelector('.progress-point')?.addEventListener('click', function() {
+   window.scrollTo({
+     top: 0,
+     behavior: 'smooth' 
+   });
+ });
+}
